@@ -1,0 +1,55 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<Bucket
+   type = "1"
+   version = "2.0">
+   <Breakpoints>
+      <BreakpointProxy
+         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
+         <BreakpointContent
+            shouldBeEnabled = "No"
+            ignoreCount = "0"
+            continueAfterRunningActions = "No"
+            filePath = "WYViscousBubble/WYViscousBubble/WYViscousBubble.m"
+            timestampString = "555243309.201375"
+            startingColumnNumber = "9223372036854775807"
+            endingColumnNumber = "9223372036854775807"
+            startingLineNumber = "255"
+            endingLineNumber = "255"
+            landmarkName = "-resetLayoutFrame"
+            landmarkType = "7">
+            <Locations>
+               <Location
+                  shouldBeEnabled = "No"
+                  ignoreCount = "0"
+                  continueAfterRunningActions = "No"
+                  symbolName = "-[WYViscousBubble resetLayoutFrame]"
+                  moduleName = "WYViscousBubble"
+                  usesParentBreakpointCondition = "Yes"
+                  urlString = "file:///Users/wayne/project/WYViscousBubble/WYViscousBubble/WYViscousBubble/WYViscousBubble.m"
+                  timestampString = "555240796.8522381"
+                  startingColumnNumber = "9223372036854775807"
+                  endingColumnNumber = "9223372036854775807"
+                  startingLineNumber = "247"
+                  endingLineNumber = "247"
+                  offsetFromSymbolStart = "2586">
+               </Location>
+               <Location
+                  shouldBeEnabled = "No"
+                  ignoreCount = "0"
+                  continueAfterRunningActions = "No"
+                  symbolName = "-[WYViscousBubble resetLayoutFrame]"
+                  moduleName = "WYViscousBubble"
+                  usesParentBreakpointCondition = "Yes"
+                  urlString = "file:///Users/wayne/project/WYViscousBubble/WYViscousBubble/WYViscousBubble/WYViscousBubble.m"
+                  timestampString = "555240796.867812"
+                  startingColumnNumber = "9223372036854775807"
+                  endingColumnNumber = "9223372036854775807"
+                  startingLineNumber = "247"
+                  endingLineNumber = "247"
+                  offsetFromSymbolStart = "2750">
+               </Location>
+            </Locations>
+         </BreakpointContent>
+      </BreakpointProxy>
+   </Breakpoints>
+</Bucket>
