@@ -7,7 +7,7 @@
 ![点击查看演示效果](https://github.com/shanpengtao/WYViscousBubble/blob/master/%E6%95%88%E6%9E%9C%E6%BC%94%E7%A4%BA.gif)
 
 # 使用说明：
-### // 初始化，默认加载到parentView上 
+### // 初始化，默认加载到parentView上，有默认的宽高可根据字体变化而变化
 WYViscousBubble *bubble = [WYViscousBubble showBubbleInView:parentView frame:CGRectMake(10, 100, 0, 0)];
 ### // 设置气泡提示数 0：不显示、负数显示小点、最大显示99+ 
 bubble.number = 111;
