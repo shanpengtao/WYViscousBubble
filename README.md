@@ -2,7 +2,7 @@
 仿qq黏性提醒气泡，支持拖拽、点击
 
 #使用说明：
-#// 初始化，默认加载到parentView上
+// 初始化，默认加载到parentView上
 #WYViscousBubble *bubble = [WYViscousBubble showBubbleInView:parentView frame:CGRectMake(10, 100, 0, 0)];
 #// 设置气泡提示数 0：不显示、负数显示小点、最大显示99+
 #bubble.number = 111;
