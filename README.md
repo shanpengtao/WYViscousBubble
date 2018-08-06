@@ -2,7 +2,7 @@
 仿qq黏性提醒气泡，支持拖拽、点击
 
 # 效果演示
-![示例](https://github.com/shanpengtao/WYViscousBubble/blob/master/%E6%95%88%E6%9E%9C%E6%BC%94%E7%A4%BA.gif)
+[点击查看演示效果](https://github.com/shanpengtao/WYViscousBubble/blob/master/%E6%95%88%E6%9E%9C%E6%BC%94%E7%A4%BA.mp4)
 
 # 使用说明：
 ### // 初始化，默认加载到parentView上 
