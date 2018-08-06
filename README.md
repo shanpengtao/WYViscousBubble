@@ -30,3 +30,6 @@ bubble.bubbleDragFinish = ^{
 ## // 点击回调
 bubble.bubbleClick = ^{
 };
+
+# 效果展示
+![示例](https://github.com/shanpengtao/WYViscousBubble/blob/master/%E8%B0%83%E8%AF%95%E7%95%8C%E9%9D%A2.mp4)
