@@ -75,7 +75,7 @@
 //    bubble.canClick = NO;
     // 能否晃动
 //    bubble.canSwing = NO;
-    // 是否设置到window上
+    // 加载到window上
     [WYViscousBubble setUpParentViewToWindow:bubble];
     // 拖拽结束回调
     bubble.bubbleDragFinish = ^{
