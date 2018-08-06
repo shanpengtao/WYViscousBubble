@@ -1,6 +1,9 @@
 # WYViscousBubble
 仿qq黏性提醒气泡，支持拖拽、点击
 
+# 效果演示
+![示例](https://github.com/shanpengtao/WYViscousBubble/blob/master/%E6%95%88%E6%9E%9C%E6%BC%94%E7%A4%BA.gif)
+
 # 使用说明：
 ## // 初始化，默认加载到parentView上 
 WYViscousBubble *bubble = [WYViscousBubble showBubbleInView:parentView frame:CGRectMake(10, 100, 0, 0)];
@@ -30,6 +33,3 @@ bubble.bubbleDragFinish = ^{
 ## // 点击回调
 bubble.bubbleClick = ^{
 };
-
-# 效果展示
-![示例](https://github.com/shanpengtao/WYViscousBubble/blob/master/%E8%B0%83%E8%AF%95%E7%95%8C%E9%9D%A2.mp4)
