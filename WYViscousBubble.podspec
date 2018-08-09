@@ -40,7 +40,7 @@ Pod::Spec.new do |s|
   s.author        = { "wayne" => "shanpengtao@vip.qq.com" }
   s.source        = { :git => "https://github.com/shanpengtao/WYViscousBubble.git" }
 
-  s.source_files  = "WYViscousBubble/*.{h,m,mm,c,cc,cpp}"
+  s.source_files  = "WYViscousBubble/WYViscousBubble/*.{h,m,mm,c,cc,cpp}"
   # s.subspec 'WYViscousBubble' do |wb|
   #  wb.source_files        = 'WYViscousBubble/*.{h,m,mm,c,cc,cpp}'
   # end
