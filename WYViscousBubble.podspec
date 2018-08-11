@@ -36,7 +36,7 @@ Pod::Spec.new do |s|
   # } 
 
   s.homepage      = "https://github.com/shanpengtao"
-
+  s.frameworks    = "Foundation","UIKit"
   s.author        = { "wayne" => "shanpengtao@vip.qq.com" }
   s.source        = { :git => "https://github.com/shanpengtao/WYViscousBubble.git" }
 
