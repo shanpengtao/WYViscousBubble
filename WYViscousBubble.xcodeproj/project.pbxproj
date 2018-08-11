@@ -19,6 +19,8 @@
 		B035DAB12115809000130D7D /* WYExplosion_4.png in Resources */ = {isa = PBXBuildFile; fileRef = B035DAAC2115808F00130D7D /* WYExplosion_4.png */; };
 		B035DAB22115809000130D7D /* WYExplosion_1.png in Resources */ = {isa = PBXBuildFile; fileRef = B035DAAD2115809000130D7D /* WYExplosion_1.png */; };
 		B035DAB32115809000130D7D /* WYExplosion_5.png in Resources */ = {isa = PBXBuildFile; fileRef = B035DAAE2115809000130D7D /* WYExplosion_5.png */; };
+		B07579E5211EEFB1007CC694 /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = B07579E4211EEFB1007CC694 /* Foundation.framework */; };
+		B07579E7211EEFB6007CC694 /* UIKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = B07579E6211EEFB6007CC694 /* UIKit.framework */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -39,6 +41,8 @@
 		B035DAAC2115808F00130D7D /* WYExplosion_4.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = WYExplosion_4.png; sourceTree = "<group>"; };
 		B035DAAD2115809000130D7D /* WYExplosion_1.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = WYExplosion_1.png; sourceTree = "<group>"; };
 		B035DAAE2115809000130D7D /* WYExplosion_5.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = WYExplosion_5.png; sourceTree = "<group>"; };
+		B07579E4211EEFB1007CC694 /* Foundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Foundation.framework; path = System/Library/Frameworks/Foundation.framework; sourceTree = SDKROOT; };
+		B07579E6211EEFB6007CC694 /* UIKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = UIKit.framework; path = System/Library/Frameworks/UIKit.framework; sourceTree = SDKROOT; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -46,6 +50,8 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				B07579E7211EEFB6007CC694 /* UIKit.framework in Frameworks */,
+				B07579E5211EEFB1007CC694 /* Foundation.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -57,6 +63,7 @@
 			children = (
 				B035DA8F21157D1600130D7D /* WYViscousBubble */,
 				B035DA8E21157D1600130D7D /* Products */,
+				B07579E3211EEFB0007CC694 /* Frameworks */,
 			);
 			sourceTree = "<group>";
 		};
@@ -105,6 +112,15 @@
 				B035DAAE2115809000130D7D /* WYExplosion_5.png */,
 			);
 			path = Resources;
+			sourceTree = "<group>";
+		};
+		B07579E3211EEFB0007CC694 /* Frameworks */ = {
+			isa = PBXGroup;
+			children = (
+				B07579E6211EEFB6007CC694 /* UIKit.framework */,
+				B07579E4211EEFB1007CC694 /* Foundation.framework */,
+			);
+			name = Frameworks;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
