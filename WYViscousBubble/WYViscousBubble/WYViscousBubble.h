@@ -56,6 +56,9 @@ typedef NS_ENUM(NSUInteger, WYNumberLabelExtendEdge){
 /** 最大拖拽范围，默认为100 */
 @property (nonatomic, assign) NSInteger maxDistance;
 
+/** 扩大拖拽的可操作范围，默认是0 */
+@property (nonatomic, assign) CGFloat enlargedMargin;
+
 #pragma mark - callBack
 
 /** 气泡点击 */

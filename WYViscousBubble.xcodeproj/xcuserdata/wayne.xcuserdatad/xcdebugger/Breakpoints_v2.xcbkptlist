@@ -10,11 +10,11 @@
             ignoreCount = "0"
             continueAfterRunningActions = "No"
             filePath = "WYViscousBubble/WYViscousBubble/WYViscousBubble.m"
-            timestampString = "555243309.201375"
+            timestampString = "555670077.720892"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "255"
-            endingLineNumber = "255"
+            startingLineNumber = "256"
+            endingLineNumber = "256"
             landmarkName = "-resetLayoutFrame"
             landmarkType = "7">
             <Locations>

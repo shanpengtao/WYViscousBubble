@@ -166,6 +166,7 @@ static BOOL isSetUpFont = NO;
     self.bgColor = DEFAULT_BACKCOLOR;
     self.textColor = DEFAULT_TEXTCOLOR;
     self.maxDistance = DEFAULT_MAXDISTANCE;
+    self.enlargedMargin = 0;
     
     self.canDrag = YES;
     self.canClick = YES;
@@ -401,15 +402,14 @@ static BOOL isSetUpFont = NO;
     pathAnimation.calculationMode = kCAAnimationPaced;
     pathAnimation.fillMode = kCAFillModeForwards;
     pathAnimation.removedOnCompletion = NO;
+    pathAnimation.autoreverses = NO;
     pathAnimation.repeatCount = INFINITY;
     pathAnimation.timingFunction = [CAMediaTimingFunction functionWithName:kCAMediaTimingFunctionLinear];
     pathAnimation.duration = 5.0;
     
-    CGMutablePathRef curvedPath = CGPathCreateMutable();
-    CGRect circleContainer = CGRectInset(self.frontCircleView.frame, self.frontCircleView.bounds.size.width / 2, self.frontCircleView.bounds.size.width / 2);
-    CGPathAddEllipseInRect(curvedPath, NULL, circleContainer);
-    pathAnimation.path = curvedPath;
-    CGPathRelease(curvedPath);
+    // 绘制正圆
+    UIBezierPath *path = [UIBezierPath bezierPathWithOvalInRect:CGRectMake(self.frontCircleView.frame.size.width * 3 / 7, self.frontCircleView.frame.size.height * 3 / 7, self.frontCircleView.frame.size.width / 7, self.frontCircleView.frame.size.height / 7)];
+    pathAnimation.path = path.CGPath;
     [self.frontCircleView.layer addAnimation:pathAnimation forKey:@"myCircleAnimation"];
     
     CAKeyframeAnimation *scaleX = [CAKeyframeAnimation animationWithKeyPath:@"transform.scale.x"];
@@ -455,10 +455,27 @@ static BOOL isSetUpFont = NO;
     } completion:^(BOOL finished) {
         self.smallCircleView.hidden = NO;
         
-        if (self.canSwing) {
+        if (self.canSwing && self.number != 0) {
             [self swingBubbleAnimation];
         }
     }];
+}
+
+// 重新命中视图扩大手势范围
+- (UIView *)hitTest:(CGPoint)point withEvent:(UIEvent *)event {
+  
+    if (self.frontCircleView.alpha <= 0.01 || !self.frontCircleView.userInteractionEnabled || self.frontCircleView.hidden || _enlargedMargin == 0) {
+        return [super hitTest:point withEvent:event];
+    }
+    
+    CGRect enlargedrect = CGRectMake(self.frontCircleView.bounds.origin.x - _enlargedMargin, self.frontCircleView.bounds.origin.y - _enlargedMargin, self.frontCircleView.frame.size.width + _enlargedMargin * 2, self.frontCircleView.frame.size.height + _enlargedMargin * 2);
+    
+    if (CGRectContainsPoint(enlargedrect, point)) {
+        return self.frontCircleView;
+    }
+    return [super hitTest:point withEvent:event];
+
+
 }
 
 #pragma mark - set
@@ -528,7 +545,9 @@ static BOOL isSetUpFont = NO;
     _canSwing = canSwing;
     
     if (_canSwing) {
-        [self swingBubbleAnimation];
+        if (self.number != 0) {
+            [self swingBubbleAnimation];
+        }
     }
     else {
         [self.frontCircleView.layer removeAllAnimations];
@@ -558,7 +577,6 @@ static BOOL isSetUpFont = NO;
     if(!_shapeLayer) {
         _shapeLayer = [CAShapeLayer layer];
         _shapeLayer.fillColor = self.frontCircleView.backgroundColor.CGColor;
-        [self.layer insertSublayer:_shapeLayer below:self.smallCircleView.layer];
     }
     return _shapeLayer;
 }

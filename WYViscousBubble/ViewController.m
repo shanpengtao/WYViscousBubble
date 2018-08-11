@@ -60,6 +60,7 @@
     bubble.textFont = [UIFont systemFontOfSize:(10 + (arc4random() % 11))];
     // 提示数
     bubble.number = (arc4random() % 150);
+    NSLog(@"随机数：%ld", (long)bubble.number);
     // 背景颜色
     bubble.bgColor = RandomColor;
     // 文本颜色
@@ -67,14 +68,16 @@
     bubble.textColor = color == bubble.bgColor ? [UIColor whiteColor] : color;
     // 最大的拖拽距离
     bubble.maxDistance = 50 + (arc4random() % 100);
+    // 扩大拖拽边缘范围
+    bubble.enlargedMargin = 20;
     // 超出过最大距离后恢复时是否显示恢复状态
-//    bubble.showRecoveryState = NO;
+    bubble.showRecoveryState = YES;
     // 能否拖拽
-//    bubble.canDrag = NO;
+    bubble.canDrag = YES;
     // 能否点击
-//    bubble.canClick = NO;
+    bubble.canClick = YES;
     // 能否晃动
-//    bubble.canSwing = NO;
+    bubble.canSwing = YES;
     // 加载到window上
     [WYViscousBubble setUpParentViewToWindow:bubble];
     // 拖拽结束回调
