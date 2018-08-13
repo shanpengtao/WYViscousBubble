@@ -15,40 +15,33 @@ Pod::Spec.new do |s|
   #  summary should be tweet-length, and the description more in depth.
   #
 
-  s.name         = "WYViscousBubble"
-  s.version      = "0.0.1"
-  s.summary      = "A short description of WYViscousBubble."
-
-  # This description is used to generate tags and improve search results.
-  #   * Think: What does it do? Why did you write it? What is the focus?
-  #   * Try to keep it short, snappy and to the point.
-  #   * Write the description between the DESC delimiters below.
-  #   * Finally, don't worry about the indent, CocoaPods strips it!
+  s.name          = "WYViscousBubble"
+  s.version       = "1.0.0"
+  s.platform      = 8.0
+  s.summary       = "A short description of WYViscousBubble."
   s.description   = <<-DESC
                       #
                     DESC
 
-  # s.license       = { 
-  #           :type => 'MIT', 
-  #           :text => <<-LICENSE
+  s.license       = { 
+            :type => 'MIT', 
+            :text => <<-LICENSE
     
-  #   LICENSE
-  # } 
-
+    LICENSE
+  } 
   s.homepage      = "https://github.com/shanpengtao"
   s.frameworks    = "Foundation","UIKit"
   s.author        = { "wayne" => "shanpengtao@vip.qq.com" }
-  s.source        = { :git => "https://github.com/shanpengtao/WYViscousBubble.git" }
-
-  s.source_files  = "WYViscousBubble/WYViscousBubble/*.{h,m,mm,c,cc,cpp}"
-  # s.subspec 'WYViscousBubble' do |wb|
-  #  wb.source_files        = 'WYViscousBubble/*.{h,m,mm,c,cc,cpp}'
-  # end
+  s.source        = { :git => "https://github.com/shanpengtao/WYViscousBubble.git", :tag => "#{s.version}" } 
+  # s.source_files  = "WYViscousBubble/WYViscousBubble/*.{h,m,mm,c,cc,cpp}"
+  s.subspec 'WYViscousBubble' do |sf|
+      sf.source_files        = 'WYViscousBubble/WYViscousBubble/*.{h,m,mm,c,cc,cpp}'
+  end
 
   s.requires_arc  = true
 
-  # s.xcconfig = { 
-  #         'OTHER_LDFLAGS'         => '-ObjC -lxml2 $(inherited)',
-  # }
+  s.xcconfig = { 
+          'OTHER_LDFLAGS'         => '-ObjC -lxml2 $(inherited)',
+  }
 
 end

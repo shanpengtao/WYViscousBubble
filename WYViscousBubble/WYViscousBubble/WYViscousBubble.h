@@ -7,6 +7,7 @@
 //
 
 #import <UIKit/UIKit.h>
+#import <Foundation/Foundation.h>
 
 typedef NS_ENUM(NSUInteger, WYNumberLabelExtendEdge){
     JRNumberLabelExtedEdgeRight = 0,    // 向右延伸
