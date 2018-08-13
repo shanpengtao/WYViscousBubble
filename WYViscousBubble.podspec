@@ -17,10 +17,11 @@ Pod::Spec.new do |s|
 
   s.name          = "WYViscousBubble"
   s.version       = "1.0.0"
-  s.platform      = 8.0
-  s.summary       = "A short description of WYViscousBubble."
+  s.platform      = :ios, '8.0'
+  s.ios.deployment_target = '8.0'
+  s.summary       = "仿qq带有拖动黏性的提醒气泡"
   s.description   = <<-DESC
-                      #
+                      #仿qq带有拖动黏性的提醒气泡
                     DESC
 
   s.license       = { 
@@ -36,6 +37,7 @@ Pod::Spec.new do |s|
   # s.source_files  = "WYViscousBubble/WYViscousBubble/*.{h,m,mm,c,cc,cpp}"
   s.subspec 'WYViscousBubble' do |sf|
       sf.source_files        = 'WYViscousBubble/WYViscousBubble/*.{h,m,mm,c,cc,cpp}'
+      sf.resource            = 'WYViscousBubble/WYViscousBubble/Resources'
   end
 
   s.requires_arc  = true
