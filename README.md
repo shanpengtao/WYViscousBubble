@@ -7,7 +7,7 @@
 ![点击查看演示效果](https://github.com/shanpengtao/WYViscousBubble/blob/master/%E6%95%88%E6%9E%9C%E6%BC%94%E7%A4%BA.gif)
 
 # 接入说明：
-使用pod WYViscousBubble 或 直接导入WYViscousBubble.(h,m)及Resource文件夹
+使用pod WYViscousBubble(如果搜不到需要执行语句：rm ~/Library/Caches/CocoaPods/search_index.json) 或 直接导入WYViscousBubble.(h,m)及Resource文件夹
 
 # 参数说明：
 ### // 初始化，默认加载到parentView上，有默认的宽高可根据字体变化而变化
