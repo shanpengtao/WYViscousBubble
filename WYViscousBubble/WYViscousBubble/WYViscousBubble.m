@@ -43,6 +43,9 @@ static BOOL isSetUpFont = NO;
 /** 轨迹layer */
 @property (nonatomic, strong) CAShapeLayer *shapeLayer;
 
+/** 缓存初始化的frame */
+@property (nonatomic, assign) CGRect tmpFrame;
+
 /** 底部小圆视图 */
 @property (nonatomic, strong) UIView *smallCircleView;
 
@@ -146,6 +149,8 @@ static BOOL isSetUpFont = NO;
     self = [super initWithFrame:frame];
     if (self) {
         
+        self.tmpFrame = frame;
+
         [self initDefaultParams];
         
         [self initDefaultView];
@@ -186,6 +191,8 @@ static BOOL isSetUpFont = NO;
 // 重置布局
 - (void)resetLayoutFrame
 {
+    self.frame = self.tmpFrame;
+
     if (_number > 99) {
         self.textLabel.text = @"99+";
         
