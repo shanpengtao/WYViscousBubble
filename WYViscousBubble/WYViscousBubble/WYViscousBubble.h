@@ -10,9 +10,9 @@
 #import <Foundation/Foundation.h>
 
 typedef NS_ENUM(NSUInteger, WYNumberLabelExtendEdge){
-    JRNumberLabelExtedEdgeRight = 0,    // 向右延伸
-    JRNumberLabelExtedEdgeCenter = 1,   // 向两边延伸
-    JRNumberLabelExtedEdgeLeft = 2      // 向左延伸
+    JRNumberLabelExtendEdgeRight = 0,    // 向右延伸
+    JRNumberLabelExtendEdgeCenter = 1,   // 向两边延伸
+    JRNumberLabelExtendEdgeLeft = 2      // 向左延伸
 };
 
 @interface WYViscousBubble : UIView
@@ -31,7 +31,7 @@ typedef NS_ENUM(NSUInteger, WYNumberLabelExtendEdge){
 @property (nonatomic, assign) NSInteger number;
 
 /** 气泡背景颜色，默认红色 */
-@property (nonatomic, strong) UIColor *bgColor;
+@property (nonatomic, strong) UIColor *backColor;
 
 /** 文字颜色，默认白色 */
 @property (nonatomic, strong) UIColor *textColor;

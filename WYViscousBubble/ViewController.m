@@ -62,10 +62,10 @@
     bubble.number = (arc4random() % 150);
     NSLog(@"随机数：%ld", (long)bubble.number);
     // 背景颜色
-    bubble.bgColor = RandomColor;
+    bubble.backColor = RandomColor;
     // 文本颜色
     UIColor *color = RandomColor;
-    bubble.textColor = color == bubble.bgColor ? [UIColor whiteColor] : color;
+    bubble.textColor = color == bubble.backColor ? [UIColor whiteColor] : color;
     // 最大的拖拽距离
     bubble.maxDistance = 50 + (arc4random() % 100);
     // 扩大拖拽边缘范围

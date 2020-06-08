@@ -11,11 +11,11 @@
 /** 默认字体 */
 #define DEFAULT_FONT [UIFont systemFontOfSize:10]
 /** 默认背景颜色 */
-#define DEFAULT_BACKCOLOR [UIColor redColor]
+#define DEFAULT_BACK_COLOR [UIColor redColor]
 /** 默认文本颜色 */
-#define DEFAULT_TEXTCOLOR [UIColor whiteColor]
+#define DEFAULT_TEXT_COLOR [UIColor whiteColor]
 /** 默认最大距离 */
-#define DEFAULT_MAXDISTANCE 100
+#define DEFAULT_MAX_DISTANCE 100
 /** 默认的最大圆宽度 */
 #define MAX_COUNT_WIDTH 28
 /** 默认的最小圆宽度 */
@@ -168,9 +168,9 @@ static BOOL isSetUpFont = NO;
     self.layer.masksToBounds = NO;
     self.backgroundColor = [UIColor clearColor];
     
-    self.bgColor = DEFAULT_BACKCOLOR;
-    self.textColor = DEFAULT_TEXTCOLOR;
-    self.maxDistance = DEFAULT_MAXDISTANCE;
+    self.backColor = DEFAULT_BACK_COLOR;
+    self.textColor = DEFAULT_TEXT_COLOR;
+    self.maxDistance = DEFAULT_MAX_DISTANCE;
     self.enlargedMargin = 0;
     
     self.canDrag = YES;
@@ -210,13 +210,13 @@ static BOOL isSetUpFont = NO;
             
             CGRect rect = self.frame;
             switch (_extendEdge) {
-                case JRNumberLabelExtedEdgeLeft:
+                case JRNumberLabelExtendEdgeLeft:
                     rect.origin.x = self.frame.origin.x - (width - self.frame.size.width);
                     break;
-                case JRNumberLabelExtedEdgeCenter:
+                case JRNumberLabelExtendEdgeCenter:
                     rect.origin.x = self.frame.origin.x - (width - self.frame.size.width) / 2;
                     break;
-                case JRNumberLabelExtedEdgeRight:
+                case JRNumberLabelExtendEdgeRight:
                 default:
                     rect.origin.x = self.frame.origin.x;
                     break;
@@ -288,17 +288,17 @@ static BOOL isSetUpFont = NO;
 }
 
 // 绘制贝塞尔曲线方法
-- (UIBezierPath *)pathWithBigCirCleView:(UIView *)bigCirCleView smallCirCleView:(UIView *)smallCirCleView
+- (UIBezierPath *)pathWithBigCirCleView:(UIView *)bigCirCleView smallCircleView:(UIView *)smallCircleView
 {
     CGPoint bigCenter = bigCirCleView.center;
     CGFloat bigX = bigCenter.x;
     CGFloat bigY = bigCenter.y;
     CGFloat bigRadius = bigCirCleView.bounds.size.height * 0.5;
     
-    CGPoint smallCenter = smallCirCleView.center;
+    CGPoint smallCenter = smallCircleView.center;
     CGFloat smallX = smallCenter.x;
     CGFloat smallY = smallCenter.y;
-    CGFloat smallRadius = smallCirCleView.bounds.size.height * 0.5;
+    CGFloat smallRadius = smallCircleView.bounds.size.height * 0.5;
     
     CGFloat d = [self distanceWithPointA:smallCenter pointB:bigCenter];
     CGFloat sina = (bigX-smallX)/d;
@@ -351,7 +351,7 @@ static BOOL isSetUpFont = NO;
         _smallCircleView.center = smallCircleCenter;
         
         if(_smallCircleView.hidden == NO && distance > 0){
-            self.shapeLayer.path = [self pathWithBigCirCleView:self.frontCircleView smallCirCleView:_smallCircleView].CGPath;
+            self.shapeLayer.path = [self pathWithBigCirCleView:self.frontCircleView smallCircleView:_smallCircleView].CGPath;
         }
     }
     else {
@@ -381,7 +381,7 @@ static BOOL isSetUpFont = NO;
             
             // 拖拽结束且没被销毁时，回弹并开启摇摆动画，且隐藏底部小圆
             self.smallCircleView.hidden = YES;
-            [self springbackAnimation];
+            [self springBackAnimation];
         }
     }
 }
@@ -450,7 +450,7 @@ static BOOL isSetUpFont = NO;
 }
 
 // 回弹效果
-- (void)springbackAnimation
+- (void)springBackAnimation
 {
     [_shapeLayer removeFromSuperlayer];
     _shapeLayer = nil;
@@ -475,9 +475,9 @@ static BOOL isSetUpFont = NO;
         return [super hitTest:point withEvent:event];
     }
     
-    CGRect enlargedrect = CGRectMake(self.frontCircleView.bounds.origin.x - _enlargedMargin, self.frontCircleView.bounds.origin.y - _enlargedMargin, self.frontCircleView.frame.size.width + _enlargedMargin * 2, self.frontCircleView.frame.size.height + _enlargedMargin * 2);
+    CGRect largeRect = CGRectMake(self.frontCircleView.bounds.origin.x - _enlargedMargin, self.frontCircleView.bounds.origin.y - _enlargedMargin, self.frontCircleView.frame.size.width + _enlargedMargin * 2, self.frontCircleView.frame.size.height + _enlargedMargin * 2);
     
-    if (CGRectContainsPoint(enlargedrect, point)) {
+    if (CGRectContainsPoint(largeRect, point)) {
         return self.frontCircleView;
     }
     return [super hitTest:point withEvent:event];
@@ -501,10 +501,10 @@ static BOOL isSetUpFont = NO;
     }
 }
 
-- (void)setBgColor:(UIColor *)bgColor
+- (void)setBackColor:(UIColor *)backColor
 {
-    if (bgColor) {
-        self.frontCircleView.backgroundColor = self.smallCircleView.backgroundColor = bgColor;
+    if (backColor) {
+        self.frontCircleView.backgroundColor = self.smallCircleView.backgroundColor = backColor;
     }
 }
 
@@ -654,14 +654,14 @@ static BOOL isSetUpFont = NO;
 // 通过字体及文字获取size
 - (CGSize)sizeWithString:(NSString *)string font:(UIFont *)font
 {
-    NSMutableDictionary *attrs = [NSMutableDictionary dictionary];
-    attrs[NSFontAttributeName] = font;
+    NSMutableDictionary *attributes = [NSMutableDictionary dictionary];
+    attributes[NSFontAttributeName] = font;
     CGSize maxSize = CGSizeMake([UIScreen mainScreen].bounds.size.width, MAXFLOAT);
     CGSize result;
     
     // 判断系统版本
     if ([[UIDevice currentDevice].systemVersion doubleValue] >= 7.0) {
-        CGSize size = [string boundingRectWithSize:maxSize options:NSStringDrawingUsesLineFragmentOrigin attributes:attrs context:nil].size;
+        CGSize size = [string boundingRectWithSize:maxSize options:NSStringDrawingUsesLineFragmentOrigin attributes:attributes context:nil].size;
         // 向上取整
         result.height = ceil(size.height);
         result.width = ceil(size.width);
